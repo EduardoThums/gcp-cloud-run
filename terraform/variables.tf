@@ -194,10 +194,22 @@ variable "cloud_run_neg_name" {
   default     = "cloud-run-neg"
 }
 
+variable "cloud_function_neg_name" {
+  description = "The name of the Cloud Function Network Endpoint Group"
+  type        = string
+  default     = "cloud-function-neg"
+}
+
 variable "cloud_run_backend_name" {
   description = "The name of the Cloud Run backend service"
   type        = string
   default     = "cloud-run-backend"
+}
+
+variable "cloud_function_backend_name" {
+  description = "The name of the Cloud Function backend service"
+  type        = string
+  default     = "cloud-function-backend"
 }
 
 variable "url_map_name" {
@@ -222,4 +234,19 @@ variable "http_forwarding_rule_name" {
   description = "The name of the HTTP forwarding rule"
   type        = string
   default     = "lb-http-forwarding-rule"
+}
+
+# Edge Function Variables
+variable "edge_function_username" {
+  description = "Username for basic authentication in the edge function"
+  type        = string
+  default     = "admin"
+  sensitive   = true
+}
+
+variable "edge_function_password" {
+  description = "Password for basic authentication in the edge function"
+  type        = string
+  default     = "change-me-secure-password"
+  sensitive   = true
 }

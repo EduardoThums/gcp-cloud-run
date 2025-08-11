@@ -124,3 +124,33 @@ output "subnet_1_cidr" {
 #   value       = google_compute_managed_ssl_certificate.lb_ssl_cert.managed[0].status
 # }
 
+# Edge Function Outputs (2nd Generation)
+output "edge_function_url" {
+  description = "URL of the storage authentication edge function (2nd gen)"
+  value       = google_cloudfunctions2_function.storage_auth_edge.service_config[0].uri
+}
+
+output "edge_function_name" {
+  description = "Name of the deployed edge function (2nd gen)"
+  value       = google_cloudfunctions2_function.storage_auth_edge.name
+}
+
+output "edge_function_location" {
+  description = "Location of the deployed edge function"
+  value       = google_cloudfunctions2_function.storage_auth_edge.location
+}
+
+output "cloud_function_backend_name" {
+  description = "Name of the Cloud Function backend service"
+  value       = google_compute_backend_service.cloud_function_backend.name
+}
+
+output "load_balancer_routing" {
+  description = "Load balancer routing configuration"
+  value = {
+    default_service = "Cloud Function (Authenticated Storage)"
+    api_service     = "Cloud Run Application"
+    domain          = var.domain_name
+  }
+}
+

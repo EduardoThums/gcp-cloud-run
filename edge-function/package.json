@@ -1,0 +1,25 @@
+{
+  "name": "storage-auth-edge-function",
+  "version": "1.0.0",
+  "description": "Edge function for authenticated access to Cloud Storage",
+  "main": "index.js",
+  "scripts": {
+    "start": "functions-framework --target=storageAuth --port=8080",
+    "deploy": "gcloud functions deploy storage-auth-edge --runtime=nodejs20 --trigger=http --allow-unauthenticated --entry-point=storageAuth --source=."
+  },
+  "dependencies": {
+    "@google-cloud/functions-framework": "^3.3.0",
+    "@google-cloud/storage": "^7.7.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "gcp",
+    "cloud-functions",
+    "authentication",
+    "storage"
+  ],
+  "author": "",
+  "license": "MIT"
+}
